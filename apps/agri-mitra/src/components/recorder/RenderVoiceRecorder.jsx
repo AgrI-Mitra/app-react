@@ -105,7 +105,7 @@ const RenderVoiceRecorder = ( props ) => {
     };
 
     const words = word.toLowerCase().split(/[ ,]+/);
-    // console.log("hi", words)
+    console.log("hi", words)
     let currentNumber = '';
 
     for (let i = 0; i < words.length; i++) {
@@ -180,7 +180,7 @@ const RenderVoiceRecorder = ( props ) => {
   const makeComputeAPICall = async (type) => {
     // const headers = {
     //   'Content-Type': 'application/json',
-    //   authorization: process.env.NEXT_PUBLIC_DHRUVA_AUTH,
+    //   authorization: process.env.REACT_APP_DHRUVA_AUTH,
     // };
     // const data = {
     //   config: {
@@ -228,7 +228,7 @@ const RenderVoiceRecorder = ( props ) => {
         case 'te':
           return '6411748db1463435d2fbaec5';
         default:
-          return '63c9586ea0e5e81614ff96a8';
+          return '6387b54086369150cb004351';
       }
     };
     const modelId_TRANSLATION = () => {
@@ -342,7 +342,7 @@ const RenderVoiceRecorder = ( props ) => {
           //         translation: rsp_data.output[0].target,
           //       }));
           // const obj = new ComputeAPI(
-          //   process.env.NEXT_PUBLIC_TTS_MODEL_ID,
+          //   process.env.REACT_APP_TTS_MODEL_ID,
           //   "मेरा पैसा कहाँ है",
           //   'tts',
           //   '',

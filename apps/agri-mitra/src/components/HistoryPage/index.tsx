@@ -15,7 +15,7 @@ const HistoryPage = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/user/conversations`, {
+      .get(`${process.env.REACT_APP_BASE_URL}/user/conversations`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem('auth')}`,
         },

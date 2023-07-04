@@ -29,7 +29,7 @@ const ChatItem: React.FC<ChatItemPropsType> = ({
     if (confirmed) {
       axios
         .get(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/user/conversations/delete/${conversationId}`,
+          `${process.env.REACT_APP_BASE_URL}/user/conversations/delete/${conversationId}`,
           {
             headers: {
               authorization: `Bearer ${localStorage.getItem('auth')}`,

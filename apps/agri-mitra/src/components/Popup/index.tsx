@@ -13,7 +13,6 @@ import { useCookies } from 'react-cookie';
 import crossIcon from '../../assets/icons/crossIcon.svg';
 import { v4 as uuidv4 } from 'uuid';
 import * as PMKisanErrors from './PMKisanErrors.json';
-import pmKisanProxy from '../../api/pmKisanProxy';
 
 interface PopupProps {
   msg: string;
@@ -36,60 +35,30 @@ const Popup = (props: PopupProps) => {
 
   const checkBeneficiaryStatus = async (type: string, input: string) => {
     const data: any = {
-      method: 'POST',
-      body: JSON.stringify({
-        method: 'POST',
-        endPoint: '/ChatbotBeneficiaryStatus',
-        data: {
-          EncryptedRequest: `{\"Types\":\"${type}\",\"Values\":\"${input}\",\"Token\":\"${process.env.NEXT_PUBLIC_PM_KISAN_TOKEN}\"}`,
-        },
-      }),
-      headers: {
-        'Content-Type': 'Application/json',
-      },
+      EncryptedRequest: `{\"Types\":\"${type}\",\"Values\":\"${input}\",\"Token\":\"${process.env.REACT_APP_PM_KISAN_TOKEN}\"}`,
     };
-    const otpRes: any = await pmKisanProxy(`api/pmKisanProxy`, data);
-    let response = await otpRes.json();
+    const otpRes: any = await axios.post(`/ChatbotBeneficiaryStatus`, data);
+    let response = await otpRes.data;
     response = JSON.parse(response.d.output);
     return response;
   };
 
   const getUserDetails = async (type: string, input: string) => {
     const data: any = {
-      method: 'POST',
-      body: JSON.stringify({
-        method: 'POST',
-        endPoint: '/ChatbotUserDetails',
-        data: {
-          EncryptedRequest: `{\"Types\":\"${type}\",\"Values\":\"${input}\",\"Token\":\"${process.env.NEXT_PUBLIC_PM_KISAN_TOKEN}\"}`,
-        },
-      }),
-      headers: {
-        'Content-Type': 'Application/json',
-      },
+      EncryptedRequest: `{\"Types\":\"${type}\",\"Values\":\"${input}\",\"Token\":\"${process.env.REACT_APP_PM_KISAN_TOKEN}\"}`,
     };
-    const otpRes: any = await pmKisanProxy(`api/pmKisanProxy`, data);
-    let response = await otpRes.json();
+    const otpRes: any = await axios.post(`/ChatbotUserDetails`, data);
+    let response = await otpRes.data;
     response = JSON.parse(response.d.output);
     return response;
   };
 
   const sendOTP = async (input: string, type: string): Promise<any> => {
     const data: any = {
-      method: 'POST',
-      body: JSON.stringify({
-        method: 'POST',
-        endPoint: '/chatbototp',
-        data: {
-          EncryptedRequest: `{\"Types\":\"${type}\",\"Values\":\"${input}\",\"Token\":\"${process.env.NEXT_PUBLIC_PM_KISAN_TOKEN}\"}`,
-        },
-      }),
-      headers: {
-        'Content-Type': 'Application/json',
-      },
+      EncryptedRequest: `{\"Types\":\"${type}\",\"Values\":\"${input}\",\"Token\":\"${process.env.REACT_APP_PM_KISAN_TOKEN}\"}`,
     };
-    const otpRes: any = await pmKisanProxy(`api/pmKisanProxy`, data);
-    let response = await otpRes.json();
+    const otpRes: any = await axios.post(`/chatbototp`, data);
+    let response = await otpRes.data;
     response = JSON.parse(response.d.output);
     return response;
   };
@@ -186,20 +155,10 @@ const Popup = (props: PopupProps) => {
     if (otp.length === 4) {
       try {
         const data: any = {
-          method: 'POST',
-          body: JSON.stringify({
-            method: 'POST',
-            endPoint: '/ChatbotOTPVerified',
-            data: {
-              EncryptedRequest: `{\"Types\":\"Mobile\",\"Values\":\"${input}\",\"Token\":\"${process.env.NEXT_PUBLIC_PM_KISAN_TOKEN}\",\"OTP\":\"${otp}\"}`,
-            },
-          }),
-          headers: {
-            'Content-Type': 'Application/json',
-          },
+          EncryptedRequest: `{\"Types\":\"Mobile\",\"Values\":\"${input}\",\"Token\":\"${process.env.REACT_APP_PM_KISAN_TOKEN}\",\"OTP\":\"${otp}\"}`,
         };
-        const otpRes: any = await pmKisanProxy(`api/pmKisanProxy`, data);
-        let response = await otpRes.json();
+        const otpRes: any = await axios.post(`/ChatbotOTPVerified`, data);
+        let response = await otpRes.data;
         response = JSON.parse(response.d.output);
         if (response.Rsponce === 'True') {
           context?.setIsMobileAvailable(true);

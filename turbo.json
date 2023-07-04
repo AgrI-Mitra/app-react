@@ -2,12 +2,10 @@
   "$schema": "https://turbo.build/schema.json",
   "globalEnv": [
     "ANALYZE",
-    "NEXT_PUBLIC_BASE_URL",
-    "NEXT_PUBLIC_SOCKET_URL",
     "NODE_ENV",
-    "NEXT_PUBLIC_ENV",
-    "NEXT_PUBLIC_PM_KISAN_BASE_URL",
-    "NEXT_PUBLIC_PM_KISAN_TOKEN"
+    "REACT_APP_ENV",
+    "REACT_APP_PM_KISAN_BASE_URL",
+    "REACT_APP_PM_KISAN_TOKEN"
   ],
 
   "globalDependencies": ["**/.env.*local"],

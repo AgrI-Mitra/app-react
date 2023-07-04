@@ -312,7 +312,7 @@ export const Composer = React.forwardRef<ComposerHandle, ComposerProps>((props, 
         </div>
         {!text && rightAction && <Action {...rightAction} />}
        
-        {!text && VoiceToText ? <VoiceToText  {...voiceToTextProps} setInputMsg={setText} /> : null}
+        {!text && VoiceToText ? <div style={{maxHeight: '45px', maxWidth: '45px'}} ><VoiceToText {...voiceToTextProps} setInputMsg={setText} /></div> : null}
         {hasToolbar && (
           <Action
             className={clsx('Composer-toggleBtn', {

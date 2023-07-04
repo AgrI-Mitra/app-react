@@ -28,7 +28,7 @@ const FAQPage: React.FC = () => {
       while (true) {
         try {
           const response = await axios.get(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/faq?page=${page}`,
+            `${process.env.REACT_APP_BASE_URL}/faq?page=${page}`,
             {
               headers: {
                 authorization: `Bearer ${localStorage.getItem('auth')}`,

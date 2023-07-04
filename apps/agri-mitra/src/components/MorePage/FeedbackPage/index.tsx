@@ -42,7 +42,7 @@ const FeedbackPage: React.FC = () => {
       if (typeof r === 'number') {
         axios
           .post(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/feedback`,
+            `${process.env.REACT_APP_BASE_URL}/feedback`,
             {
               rating: r,
               phoneNumber: localStorage.getItem('phoneNumber'),
@@ -62,7 +62,7 @@ const FeedbackPage: React.FC = () => {
       } else if (typeof r === 'string') {
         axios
           .post(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/feedback`,
+            `${process.env.REACT_APP_BASE_URL}/feedback`,
             {
               review: r,
               phoneNumber: localStorage.getItem('phoneNumber'),

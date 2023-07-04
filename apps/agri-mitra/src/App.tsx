@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/globals.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import ContextProvider from './context/ContextProvider';
 import { useEffect, useState } from 'react';
@@ -89,7 +89,6 @@ const App = () => {
           <div style={{ height: '100%' }}>
             <Toaster position="top-center" reverseOrder={false} />
             <NavBar />
-            {/* <BrowserRouter> */}
               <Routes>
                 <Route
                   path="/"
@@ -136,7 +135,6 @@ const App = () => {
                   }
                 />
               </Routes>
-            {/* </BrowserRouter> */}
           </div>
         </ContextProvider>
       </ChakraProvider>

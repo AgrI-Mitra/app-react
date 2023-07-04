@@ -65,7 +65,7 @@ const HomePage = () => {
       //     const response = await axios.post(
       //       "https://meity-auth.ulcacontrib.org/ulca/apis/v0/model/compute",
       //       {
-      //         modelId: process.env.NEXT_PUBLIC_TRANSLITERATION_MODELID,
+      //         modelId: process.env.REACT_APP_TRANSLITERATION_MODELID,
       //         task: "transliteration",
       //         input: input,
       //       },

@@ -275,9 +275,14 @@ var Composer = /*#__PURE__*/_react.default.forwardRef(function (props, ref) {
     invisible: !isInputText
   }, inputProps, {
     disabled: disableSend
-  })), !isInputText && /*#__PURE__*/_react.default.createElement(_Recorder.Recorder, recorder)), !text && rightAction && /*#__PURE__*/_react.default.createElement(_Action.Action, rightAction), !text && VoiceToText ? /*#__PURE__*/_react.default.createElement(VoiceToText, (0, _extends2.default)({}, voiceToTextProps, {
+  })), !isInputText && /*#__PURE__*/_react.default.createElement(_Recorder.Recorder, recorder)), !text && rightAction && /*#__PURE__*/_react.default.createElement(_Action.Action, rightAction), !text && VoiceToText ? /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      maxHeight: '45px',
+      maxWidth: '45px'
+    }
+  }, /*#__PURE__*/_react.default.createElement(VoiceToText, (0, _extends2.default)({}, voiceToTextProps, {
     setInputMsg: setText
-  })) : null, hasToolbar && /*#__PURE__*/_react.default.createElement(_Action.Action, {
+  }))) : null, hasToolbar && /*#__PURE__*/_react.default.createElement(_Action.Action, {
     className: (0, _clsx.default)('Composer-toggleBtn', {
       active: isAccessoryOpen
     }),

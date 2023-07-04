@@ -40,13 +40,13 @@ const OTPpage: React.FC = () => {
   //   const inputOTP: string = input1 + input2 + input3 + input4;
   //   if (inputOTP.length === 4) {
   //     fetch(
-  //       `${process.env.NEXT_PUBLIC_OTP_BASE_URL}api/login/otp`,
+  //       `${process.env.REACT_APP_OTP_BASE_URL}api/login/otp`,
   //       {
   //         method: "POST",
   //         body: JSON.stringify({
   //           loginId: router.query.state,
   //           password: inputOTP,
-  //           applicationId: process.env.NEXT_PUBLIC_USER_SERVICE_APP_ID,
+  //           applicationId: process.env.REACT_APP_USER_SERVICE_APP_ID,
   //         }),
   //         headers: {
   //           "Content-Type": "application/json",
@@ -121,7 +121,7 @@ const OTPpage: React.FC = () => {
   //   setIsResendingOTP(true);
   //   try {
   //     const response = await axios.get(
-  //       `${process.env.NEXT_PUBLIC_OTP_BASE_URL}api/sendOTP?phone=${router.query.state}`
+  //       `${process.env.REACT_APP_OTP_BASE_URL}api/sendOTP?phone=${router.query.state}`
   //     );
   //     if (response.status === 200) {
   //       toast.success(`${t("message.otp_sent_again")}`);

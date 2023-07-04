@@ -38,7 +38,7 @@ function loadMessages(locale: string) {
   }
 }
 
-const URL = process.env.NEXT_PUBLIC_SOCKET_URL || '';
+const URL = process.env.REACT_APP_SOCKET_URL || '';
 
 const ContextProvider: FC<{
   locale: any;
@@ -243,14 +243,7 @@ const ContextProvider: FC<{
           //    console.log('mssgs:',messages)
         }
     },
-    [
-      newSocket,
-      socketSession,
-      conversationId,
-      t,
-      // onSocketConnect,
-      currentUser?.id,
-    ]
+    [removeCookie, currentUser?.id]
   );
 
   //@ts-ignore
@@ -325,7 +318,7 @@ const ContextProvider: FC<{
   const fetchIsDown = useCallback(async () => {
     try {
       // const res = await axios.get(
-      //   `${process.env.NEXT_PUBLIC_BASE_URL}/health/20`
+      //   `${process.env.REACT_APP_BASE_URL}/health/20`
       // );
       // const status = res.data.status;
       const status = 'OK';

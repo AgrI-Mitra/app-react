@@ -1,5 +1,4 @@
-import axios from 'axios';
-//@ts-ignore
+// import axios from 'axios';
 import Chat from 'chatui';
 import React, {
   ReactElement,
@@ -16,10 +15,10 @@ import ChatMessageItem from '../../chat-message-item';
 import { v4 as uuidv4 } from 'uuid';
 import toast from 'react-hot-toast';
 import RenderVoiceRecorder from '../../recorder/RenderVoiceRecorder';
-import DownTimePage from '../../down-time-page';
+// import DownTimePage from '../../down-time-page';
 import Popup from '../../Popup';
 
-const ChatUiWindow: React.FC = () => {
+const ChatUiWindow = () => {
   const t = useLocalization();
   const context = useContext(AppContext);
   const [msg, setMsg] = useState('');
@@ -31,7 +30,7 @@ const ChatUiWindow: React.FC = () => {
   //       if (!context?.isDown) {
   //         const chatHistory = await axios.get(
   //           `${
-  //             process.env.NEXT_PUBLIC_BASE_URL
+  //             process.env.REACT_APP_BASE_URL
   //           }/user/chathistory/${sessionStorage.getItem('conversationId')}`,
   //           {
   //             headers: {
@@ -62,36 +61,36 @@ const ChatUiWindow: React.FC = () => {
   //   context?.isDown,
   // ]);
 
-  const normalizedChat = (chats: any): any => {
-    console.log('in normalized');
-    const conversationId = sessionStorage.getItem('conversationId');
-    const history = chats
-      .filter(
-        (item: any) =>
-          conversationId === 'null' || item.conversationId === conversationId
-      )
-      .flatMap((item: any) => [
-        {
-          text: item.query,
-          position: 'right',
-          repliedTimestamp: item.createdAt,
-          messageId: uuidv4(),
-        },
-        {
-          text: item.response,
-          position: 'left',
-          sentTimestamp: item.createdAt,
-          reaction: item.reaction,
-          msgId: item.id,
-          messageId: item.id,
-        },
-      ]);
+  // const normalizedChat = (chats: any): any => {
+  //   console.log('in normalized');
+  //   const conversationId = sessionStorage.getItem('conversationId');
+  //   const history = chats
+  //     .filter(
+  //       (item: any) =>
+  //         conversationId === 'null' || item.conversationId === conversationId
+  //     )
+  //     .flatMap((item: any) => [
+  //       {
+  //         text: item.query,
+  //         position: 'right',
+  //         repliedTimestamp: item.createdAt,
+  //         messageId: uuidv4(),
+  //       },
+  //       {
+  //         text: item.response,
+  //         position: 'left',
+  //         sentTimestamp: item.createdAt,
+  //         reaction: item.reaction,
+  //         msgId: item.id,
+  //         messageId: item.id,
+  //       },
+  //     ]);
 
-    console.log('historyyy', history);
-    console.log('history length:', history.length);
+  //   console.log('historyyy', history);
+  //   console.log('history length:', history.length);
 
-    return history;
-  };
+  //   return history;
+  // };
 
   useEffect(() => {
     context?.fetchIsDown(); // check if server is down
@@ -105,7 +104,7 @@ const ChatUiWindow: React.FC = () => {
   }, []);
 
   const handleSend = useCallback(
-    async (type: string, msg: any) => {
+    async (type, msg) => {
       if (msg.length === 0) {
         toast.error(t('error.empty_msg'));
         return;
@@ -122,7 +121,7 @@ const ChatUiWindow: React.FC = () => {
       //   const response = await axios.post(
       //     "https://meity-auth.ulcacontrib.org/ulca/apis/v0/model/compute",
       //     {
-      //       modelId: process.env.NEXT_PUBLIC_TRANSLITERATION_MODELID,
+      //       modelId: process.env.REACT_APP_TRANSLITERATION_MODELID,
       //       task: "transliteration",
       //       input: input,
       //     },
@@ -159,7 +158,7 @@ const ChatUiWindow: React.FC = () => {
   );
   const normalizeMsgs = useMemo(
     () =>
-      context?.messages?.map((msg: any) => ({
+      context?.messages?.map((msg) => ({
         type: getMsgType(msg),
         content: { text: msg?.text, data: { ...msg } },
         position: msg?.position ?? 'right',
@@ -188,6 +187,7 @@ const ChatUiWindow: React.FC = () => {
   // if (context?.isDown) {
   //   return <DownTimePage />;
   // } else
+
     return (
       <div style={{ height: '100%', width: '100%' }}>
         {context?.showPopUp && <Popup msg={msg} />}
@@ -195,12 +195,12 @@ const ChatUiWindow: React.FC = () => {
           btnColor="var(--secondarygreen)"
           background="var(--bg-color)"
           disableSend={context?.loading}
-          //@ts-ignore
           messages={msgToRender}
           voiceToText={RenderVoiceRecorder}
           //@ts-ignore
-          renderMessageContent={(props): ReactElement => (
+          renderMessageContent={(props) => (
             <ChatMessageItem
+            //@ts-ignore
               key={props}
               message={props}
               currentUser={context?.currentUser}

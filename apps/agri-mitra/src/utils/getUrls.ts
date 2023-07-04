@@ -1,4 +1,4 @@
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const getLikeMessageUrl = (msgId: string) =>
   `${baseUrl}/feedback/query/like/${msgId}`;
