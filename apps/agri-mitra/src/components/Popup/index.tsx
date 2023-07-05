@@ -37,7 +37,7 @@ const Popup = (props: PopupProps) => {
     const data: any = {
       EncryptedRequest: `{\"Types\":\"${type}\",\"Values\":\"${input}\",\"Token\":\"${process.env.REACT_APP_PM_KISAN_TOKEN}\"}`,
     };
-    const otpRes: any = await axios.post(`/ChatbotBeneficiaryStatus`, data);
+    const otpRes: any = await axios.post(`${process.env.REACT_APP_PM_KISAN_BASE_URL}/ChatbotBeneficiaryStatus`, data);
     let response = await otpRes.data;
     response = JSON.parse(response.d.output);
     return response;
@@ -47,7 +47,7 @@ const Popup = (props: PopupProps) => {
     const data: any = {
       EncryptedRequest: `{\"Types\":\"${type}\",\"Values\":\"${input}\",\"Token\":\"${process.env.REACT_APP_PM_KISAN_TOKEN}\"}`,
     };
-    const otpRes: any = await axios.post(`/ChatbotUserDetails`, data);
+    const otpRes: any = await axios.post(`${process.env.REACT_APP_PM_KISAN_BASE_URL}/ChatbotUserDetails`, data);
     let response = await otpRes.data;
     response = JSON.parse(response.d.output);
     return response;
@@ -57,7 +57,7 @@ const Popup = (props: PopupProps) => {
     const data: any = {
       EncryptedRequest: `{\"Types\":\"${type}\",\"Values\":\"${input}\",\"Token\":\"${process.env.REACT_APP_PM_KISAN_TOKEN}\"}`,
     };
-    const otpRes: any = await axios.post(`/chatbototp`, data);
+    const otpRes: any = await axios.post(`${process.env.REACT_APP_PM_KISAN_BASE_URL}/chatbototp`, data);
     let response = await otpRes.data;
     response = JSON.parse(response.d.output);
     return response;
@@ -157,7 +157,7 @@ const Popup = (props: PopupProps) => {
         const data: any = {
           EncryptedRequest: `{\"Types\":\"Mobile\",\"Values\":\"${input}\",\"Token\":\"${process.env.REACT_APP_PM_KISAN_TOKEN}\",\"OTP\":\"${otp}\"}`,
         };
-        const otpRes: any = await axios.post(`/ChatbotOTPVerified`, data);
+        const otpRes: any = await axios.post(`${process.env.REACT_APP_PM_KISAN_BASE_URL}/ChatbotOTPVerified`, data);
         let response = await otpRes.data;
         response = JSON.parse(response.d.output);
         if (response.Rsponce === 'True') {
