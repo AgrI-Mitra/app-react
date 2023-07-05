@@ -2,19 +2,19 @@
   "rewrites": [
     {
       "source": "/chatbototp",
-      "destination": "$REACT_APP_PM_KISAN_BASE_URL/chatbototp"
+      "destination": "https://exlink.pmkisan.gov.in/services/chatbotservice.asmx/chatbototp"
     },
     {
       "source": "/ChatbotBeneficiaryStatus",
-      "destination": "$REACT_APP_PM_KISAN_BASE_URL/ChatbotBeneficiaryStatus"
+      "destination": "https://exlink.pmkisan.gov.in/services/chatbotservice.asmx/ChatbotBeneficiaryStatus"
     },
     {
       "source": "/ChatbotUserDetails",
-      "destination": "$REACT_APP_PM_KISAN_BASE_URL/ChatbotUserDetails"
+      "destination": "https://exlink.pmkisan.gov.in/services/chatbotservice.asmx/ChatbotUserDetails"
     },
     {
       "source": "/ChatbotOTPVerified",
-      "destination": "$REACT_APP_PM_KISAN_BASE_URL/ChatbotOTPVerified"
+      "destination": "https://exlink.pmkisan.gov.in/services/chatbotservice.asmx/ChatbotOTPVerified"
     }
   ]
 }
