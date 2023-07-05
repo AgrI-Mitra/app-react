@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/chatbototp",
+      "destination": "$REACT_APP_PM_KISAN_BASE_URL/chatbototp"
+    },
+    {
+      "source": "/ChatbotBeneficiaryStatus",
+      "destination": "$REACT_APP_PM_KISAN_BASE_URL/ChatbotBeneficiaryStatus"
+    },
+    {
+      "source": "/ChatbotUserDetails",
+      "destination": "$REACT_APP_PM_KISAN_BASE_URL/ChatbotUserDetails"
+    },
+    {
+      "source": "/ChatbotOTPVerified",
+      "destination": "$REACT_APP_PM_KISAN_BASE_URL/ChatbotOTPVerified"
+    }
+  ]
+}
