@@ -110,7 +110,7 @@ const Popup = (props: PopupProps) => {
         console.log(errorMsg);
         toast.error(errorMsg);
         if (
-          response.Message === 'This mobile number taged with multiple records.'
+          response.Message === 'This mobile number tagged with multiple records.'
         ) {
           setShowInput(false);
           setShowAadhaar(true);
@@ -165,10 +165,10 @@ const Popup = (props: PopupProps) => {
           context?.sendMessage(props.msg.trim());
           context?.setShowPopUp(false);
           let errors = await checkBeneficiaryStatus('Mobile', input);
-          if (errors.Rsponce == 'True') {
+          if (errors.Rsponce === 'True') {
             let userDetails = await getUserDetails('Mobile', input);
-            if (userDetails.Rsponce == 'True')
-              context?.onMessageReceived({
+            if (userDetails.Rsponce === 'True')
+              await context?.onMessageReceived({
                 content: {
                   //@ts-ignore
                   title: `Hi ${userDetails.BeneficiaryName},
@@ -184,10 +184,11 @@ Address: ${userDetails.Address}`,
                   conversationId: sessionStorage.getItem('conversationId'),
                   messageId: uuidv4(),
                   to: localStorage.getItem('userID'),
+                  split: true,
                 },
               });
             Object.entries(errors).forEach(([key, value]) => {
-              if (key != 'Rsponce' && key != 'Message') {
+              if (key !== 'Rsponce' && key !== 'Message') {
                 if (value) {
                   console.log(`ERRORVALUE: ${key} ${value}`);
                   context?.onMessageReceived({
