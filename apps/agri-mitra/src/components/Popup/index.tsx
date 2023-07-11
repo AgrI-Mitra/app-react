@@ -155,7 +155,7 @@ const Popup = (props: PopupProps) => {
     if (otp.length === 4) {
       try {
         const data: any = {
-          EncryptedRequest: `{\"Types\":\"Mobile\",\"Values\":\"${input}\",\"Token\":\"${process.env.REACT_APP_PM_KISAN_TOKEN}\",\"OTP\":\"${otp}\"}`,
+          EncryptedRequest: `{\"Types\":\"Mobile\",\"Values\":\"${input+(aadhaar.length>0?aadhaar:'')}\",\"Token\":\"${process.env.REACT_APP_PM_KISAN_TOKEN}\",\"OTP\":\"${otp}\"}`,
         };
         const otpRes: any = await axios.post(`/ChatbotOTPVerified`, data);
         let response = await otpRes.data;
